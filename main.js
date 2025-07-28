@@ -14,3 +14,17 @@ const menuIcon = document.getElementById('menu-icon');
   menuIcon.onclick = () => {
     navbar.classList.toggle('active');
   };
+
+  let navLinks = document.querySelectorAll('.navbar a');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navbar.classList.remove('active');
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (!navbar.contains(event.target) && !menu.contains(event.target)) {
+    navbar.classList.remove('active');
+  }
+});
